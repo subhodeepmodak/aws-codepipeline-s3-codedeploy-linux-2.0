@@ -38,3 +38,24 @@ def lambda_handler(event, context):
         'statusCode': 200,
         'body': json.dumps('Log completed')
     }
+
+//q.2] Terrafoem Ec2 instance
+provider "aws" {
+access_key = "<YOUR IAM USER ACCESS KEY>"
+secret_key = "<YOUR IAM USER ACCESS SECRET KEY>"
+region  = "ap-south-1"
+}
+
+resource "aws_instance" "terraform_instance" {
+  ami           = "<AMI KEY>"
+  instance_type = "t2.micro"
+}
+
+//Q.3] Terraform s3 bucket 
+provider "aws" {
+access_key = "<YOUR IAM USER ACCESS KEY>"
+secret_key = "<YOUR IAM USER ACCESS SECRET KEY>"
+region  = "ap-south-1"
+}
+
+resource "aws_s3_bucket" "my_bucket" {}
